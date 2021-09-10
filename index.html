@@ -5,12 +5,21 @@
   <title>Fortun8</title>
   <style>
     body {
-      background: #304;
+      background: rgb(64, 50, 99);
       color: #fe0;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: center;
+    }
+    h3 {
+      color: rgb(160, 2, 2);
     }
     input {
-      border: .51em solid #3f9;
+      background: none;
+      border: none;
+      font-size: x-large;
+    }
+    #userInput {
+      border: .1em solid #3f9;
       background: none;
       color: #3f9;
     }
@@ -18,26 +27,43 @@
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
     #teller {
-      border: .3em solid rgb(160, 2, 2);
-      border-radius: 5px;
-      text-align: center;
-      padding-bottom: 2em;
+      border: .2em solid rgb(160, 2, 2);
+      border-radius: 1px;
+      background: rgba(245, 218, 65, 0.63);
       padding-left: 1em;
       padding-right: 1em;
+      max-width: fit-content;
+      margin: auto auto;
+    }
+    #fortune {
+      background: black;
+      width: 2em;
+      margin: auto auto;
+      margin-bottom: 1em;
+      border: 1px solid rgba(90, 59, 0, 0.719);
+    }
+    #window {
+      background: rgb(255, 239, 149);
+      border: 1px solid red;
     }
   </style>
 
 </head>
 
 <body>
-  <div id="teller">
+  <div id="teller" style="font-size: x-large;">
+    <div id="window">
+      <h1 style="margin-bottom: 0;">🧞</h1>
+      <input type="submit" value="🔮" onclick="tellFortune()"/>
+    </div>
+    <h3>Fortun8</h3>
+    <p id="fortune">❓</p>
+  </div>
 
-    <h1>Fortun8 🧞</h1>
-    <p>Enter your question or statement to discover your DESTINY - in emoji format of course 👍</p>
-    <p id="fortune"></p>
+    <p>Enter your inquiry below and press the crystal ball to discover your DESTINY - <i>in emoji format of course!</i> 👍</p>
+
     <form onsubmit="tellFortune()" id="myForm">
       <input type="text" id="userInput" autofocus />
-      <input type="submit" value="🔮" />
     </form>
 
     <script>
@@ -60,6 +86,5 @@
       form.addEventListener('submit', handleForm);
     </script>
 
-  </div>
 </body>
 </html>
