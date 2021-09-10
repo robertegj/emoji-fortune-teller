@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortun8</title>
+</head>
+
+<body>
+  <h1>Fortun8</h1>
+  <p>Enter your question, statement, *something* and find out your fate!</p>
+  <form onsubmit="tellFortune()">
+    <input type="text" />
+    <input type="submit" />
+  </form>
+  <p id="fortune"></p>
+  <script>
+    // Generate fortune BASED ON INPUT
+    // i.e. entering the same thing twice will get THE SAME FORTUNE!
+    // much more interesting than PURE RANDOM
+    // use TIME and THE NUMBER OF LETTERS instead of RANDOM, to produce fortune-tellery results!
+    function tellFortune(){
+      let responses = ['😀','😘','😳','🤩','😂', '😥']
+      alert(responses[Math.floor(Math.random() * (responses.length - 0) + 0)]);
+    }
+  </script>
+</body>
+</html>
