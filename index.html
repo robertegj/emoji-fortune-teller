@@ -3,34 +3,61 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fortun8</title>
+  <style>
+    body {
+      background: #304;
+      color: #fe0;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    input {
+      border: .51em solid #3f9;
+      background: none;
+      color: #3f9;
+    }
+    h1 {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    #teller {
+      border: .3em solid rgb(160, 2, 2);
+      border-radius: 5px;
+      text-align: center;
+      padding-bottom: 2em;
+    }
+  </style>
+
 </head>
 
 <body>
-  <h1>Fortun8</h1>
-  <p>Enter your question, statement, *something* and find out your fate!</p>
-  <form onsubmit="tellFortune()" id="myForm">
-    <input type="text" id="userInput" />
-    <input type="submit" />
-  </form>
-  <p id="fortune"></p>
-  <script>
-    // Generate fortune BASED ON INPUT
-    // i.e. entering the same thing twice will get THE SAME FORTUNE!
-    // much more interesting than PURE RANDOM
-    // use TIME and THE NUMBER OF LETTERS instead of RANDOM, to produce fortune-tellery results!
-    function tellFortune(){
-      const responses = ['😀','😘','😳','🤩','😂','😥'];
-      var time = new Date().getMinutes();
-      var letterCount = document.getElementById("userInput").value.length;
-      var math = time + letterCount;
-      document.getElementById("fortune").innerText = responses[math%responses.length];
-      // alert(responses[Math.floor(Math.random() * (responses.length - 0) + 0)]);
-    }
+  <div id="teller">
 
-    // stop form from doing the refresh thing
-    var form = document.getElementById("myForm");
-    function handleForm(event) { event.preventDefault(); } 
-    form.addEventListener('submit', handleForm);
-  </script>
+    <h1>Fortun8 🧞</h1>
+    <p>Enter your question or statement to discover your DESTINY - in emoji format of course 👍</p>
+    <p id="fortune"></p>
+    <form onsubmit="tellFortune()" id="myForm">
+      <input type="text" id="userInput" autofocus />
+      <input type="submit" value="🔮" />
+    </form>
+
+    <script>
+      // Generate fortune BASED ON INPUT
+      // i.e. entering the same thing twice will get THE SAME FORTUNE!
+      // much more interesting than PURE RANDOM
+      // use TIME and THE NUMBER OF LETTERS instead of RANDOM, to produce fortune-tellery results!
+      function tellFortune(){
+        const responses = ['😀','😘','😳','🤩','😂','😥'];
+        var time = new Date().getMinutes();
+        var letterCount = document.getElementById("userInput").value.length;
+        var math = time + letterCount;
+        document.getElementById("fortune").innerText = responses[math%responses.length];
+        // alert(responses[Math.floor(Math.random() * (responses.length - 0) + 0)]);
+      }
+
+      // stop form from doing the refresh thing
+      var form = document.getElementById("myForm");
+      function handleForm(event) { event.preventDefault(); } 
+      form.addEventListener('submit', handleForm);
+    </script>
+
+  </div>
 </body>
 </html>
