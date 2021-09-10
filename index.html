@@ -8,8 +8,8 @@
 <body>
   <h1>Fortun8</h1>
   <p>Enter your question, statement, *something* and find out your fate!</p>
-  <form onsubmit="tellFortune()">
-    <input type="text" />
+  <form onsubmit="tellFortune()" id="myForm">
+    <input type="text" id="userInput" />
     <input type="submit" />
   </form>
   <p id="fortune"></p>
@@ -19,11 +19,18 @@
     // much more interesting than PURE RANDOM
     // use TIME and THE NUMBER OF LETTERS instead of RANDOM, to produce fortune-tellery results!
     function tellFortune(){
-      const responses = ['😀','😘','😳','🤩','😂','😥']
-      var time = new Date().getMinutes()
-      alert(responses[time%responses.length])
+      const responses = ['😀','😘','😳','🤩','😂','😥'];
+      var time = new Date().getMinutes();
+      var letterCount = document.getElementById("userInput").value.length;
+      var math = time + letterCount;
+      document.getElementById("fortune").innerText = responses[math%responses.length];
       // alert(responses[Math.floor(Math.random() * (responses.length - 0) + 0)]);
     }
+
+    // stop form from doing the refresh thing
+    var form = document.getElementById("myForm");
+    function handleForm(event) { event.preventDefault(); } 
+    form.addEventListener('submit', handleForm);
   </script>
 </body>
 </html>
