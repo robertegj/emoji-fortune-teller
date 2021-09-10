@@ -19,8 +19,10 @@
     // much more interesting than PURE RANDOM
     // use TIME and THE NUMBER OF LETTERS instead of RANDOM, to produce fortune-tellery results!
     function tellFortune(){
-      let responses = ['😀','😘','😳','🤩','😂', '😥']
-      alert(responses[Math.floor(Math.random() * (responses.length - 0) + 0)]);
+      const responses = ['😀','😘','😳','🤩','😂','😥']
+      var time = new Date().getMinutes()
+      alert(responses[time%responses.length])
+      // alert(responses[Math.floor(Math.random() * (responses.length - 0) + 0)]);
     }
   </script>
 </body>
