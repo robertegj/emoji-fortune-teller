@@ -77,6 +77,11 @@
         var letterCount = document.getElementById("userInput").value.length;
         var math = time + letterCount;
         document.getElementById("fortune").innerText = responses[math%responses.length];
+        document.getElementById("fortune").animate([
+          { transform: translateY("-10px") },
+          ], {
+          duration: 1000
+        });
         // alert(responses[Math.floor(Math.random() * (responses.length - 0) + 0)]);
       }
 
